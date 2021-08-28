@@ -1,6 +1,6 @@
 # Golang-json-db
 Simple json based db, if you call db xd.
-#Basics
+# Basics
 ```go
 //First of all you have to config main json file then config backup json file. Backup is important you will see.
 
