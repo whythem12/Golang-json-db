@@ -7,14 +7,7 @@ import (
 	
 )
 
-func main() {
-	
-	db := Db{
-		path: "asdf.json",
-		backupPath: "backup.json",
-	}
-	db.Write("qwe" , "flgg")	
-}
+func main() {}
 type Db struct{
 	path string
 	inputs map[string]interface{}
