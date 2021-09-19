@@ -93,3 +93,12 @@ func (db *Db) GetAll() interface{} {
 	fmt.Println(a)
 	return db.inputs
 }
+
+func (db *Db) AppendString(file Db, text string) {
+    file, err := os.OpenFile(file.path , os.O_APPEND|os.O_WRONLY, 0644)
+    if err != nil {
+        fmt.Println(err)
+    }
+    defer file.Close()
+     file.WriteString(text);	
+}
