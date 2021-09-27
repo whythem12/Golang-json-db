@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	
 )
 
 func main() {}
@@ -30,7 +29,6 @@ func (db *Db) WriteString(file Db , input string) {
 		panic(err)
 	}
 	f.WriteString(input)
-//useless but who cares lol
 }
 
 
@@ -55,13 +53,13 @@ func (db *Db) Write(key string, value interface{}) *Db {
     data, err := json.Marshal(db.inputs)
 
     if err != nil {
-        fmt.Println(err)
+        fmt.Println("Database Error: %d", err)
     }
 
     err = os.WriteFile(db.path, data, 666)
 
     if err != nil {
-        fmt.Println(err)
+        fmt.Println("Database Error: %d", err)
     }
 
     return db
@@ -79,13 +77,13 @@ func (db *Db) Backup(){
     data, err := json.Marshal(db.inputs)
 
     if err != nil {
-        fmt.Println(err)
+        fmt.Println("Database Error: %d", err)
     }
 
     err = os.WriteFile(db.backupPath, data, 666)
 
     if err != nil {
-        fmt.Println(err)
+        fmt.Println("Database Error: %d", err)
     }
 }
 func (db *Db) GetAll() interface{} {
@@ -97,7 +95,7 @@ func (db *Db) GetAll() interface{} {
 func (db *Db) AppendString(file Db, text string) {
     file, err := os.OpenFile(file.path , os.O_APPEND|os.O_WRONLY, 0644)
     if err != nil {
-        fmt.Println(err)
+        fmt.Println("Database Error: %d", err)
     }
     defer file.Close()
      file.WriteString(text);	
