@@ -19,6 +19,7 @@ func (db *Db) Create(fileName Db ){
 	a , err := os.Create(fileName.path)
 	defer a.Close()
 	if err != nil{
+                fmt.Print("Database Error: ")
 		panic(err)
 	}
 	
@@ -26,6 +27,7 @@ func (db *Db) Create(fileName Db ){
 func (db *Db) WriteString(file Db , input string) {
 	f , err := os.Create(file.path)
 	if err != nil{
+                fmt.Print("Database Error: ")
 		panic(err)
 	}
 	f.WriteString(input)
